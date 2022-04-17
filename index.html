@@ -67,12 +67,18 @@
 
     <div class="card col s8 white city-display">
         <div class="card-content">
-            <span class="card-title">City: <span id="city-name">Austin</span></span>
+            <span class="card-title">
+                City: <span id="city-name">Austin</span>
+                <span>//  Current Weather: <span id="single-day-current">
+                </span>
+                </span>
+            </span>
             <div class="weather-details">
-                <p class="section">Temp:</p>
-                <p class="section">Wind:</p>
-                <p class="section">Humidity:</p>
-                <p class="section">UV Index:</p>
+                <img class="icons" id=single-day-icon-1></img>
+                <p class="section" id=single-day-temp>Temp:</p>
+                <p class="section" id=single-day-wind>Wind:</p>
+                <p class="section" id=single-day-hum>Humidity:</p>
+                <p class="section" id=single-day-UV>UV Index:</p>
             </div>  
         </div>
     </div>
@@ -84,35 +90,35 @@
     <span class="card-title">5-day forecast: <span id="five-day-city">Austin</span></span>
         <div class="five-day-result">
             <span class="col s2 teal lighten-2 day-display" id="day-1">
-                <p class="section" id=date-1></p>
+                <p class="section" id=date-1>Date:</p>
                 <img class="icons" id=icon-1></img>
                 <p class="section" id="day1temp">Temp:</p>
                 <p class="section" id="day1wind">Wind:</p>
                 <p class="section" id="day1hum">Humidity:</p>
             </span>
             <span class="col s2 teal lighten-2 day-display" id="day-2">
-                <p class="section" id=date-2></p>
+                <p class="section" id=date-2>Date:</p>
                 <img class="icons" id=icon-2></img>
                 <p class="section"id="day2temp">Temp:</p>
                 <p class="section"id="day2wind">Wind:</p>
                 <p class="section"id="day2hum">Humidity:</p>
             </span>
             <span class="col s2 teal lighten-2 day-display" id="day-3">
-                <p class="section" id=date-3></p>
+                <p class="section" id=date-3>Date:</p>
                 <img class="icons"id=icon-3></img>
                 <p class="section"id="day3temp">Temp:</p>
                 <p class="section"id="day3wind">Wind:</p>
                 <p class="section"id="day3hum">Humidity:</p>
             </span>
             <span class="col s2 teal lighten-2 day-display" id="day-4">
-                <p class="section" id=date-4></p>
+                <p class="section" id=date-4>Date:</p>
                 <img class="icons"id=icon-4></img>
                 <p class="section"id="day4temp">Temp:</p>
                 <p class="section"id="day4wind">Wind:</p>
                 <p class="section"id="day4hum">Humidity:</p>
             </span>
                 <span class="col s2 teal lighten-2 day-display" id="day-5">
-                <p class="section" id=date-5></p>
+                <p class="section" id=date-5>Date:</p>
                 <img class="icons"id=icon-5></img>
                 <p class="section"id="day5temp">Temp:</p>
                 <p class="section"id="day5wind">Wind:</p>
@@ -123,7 +129,7 @@
 </div>
 
 
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js" integrity="sha512-Wkxbeuy81yHqZNrMurMURCOCMzkJqaFYnvToublHiOGoVXQ2DS1lOUjKwstbe0GwELrRb9sicdV2y6GiAnVxuw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRNB3o7RWJU870ap-9jNbAdqjlN9D9Zec&libraries=places"></script>
         <script src=https://code.jquery.com/jquery-3.6.0.min.js></script>
         <!-- Compiled and minified JavaScript -->
