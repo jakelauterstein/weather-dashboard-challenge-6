@@ -1,0 +1,42 @@
+.card-content {
+    padding: 50px;
+   
+}
+.five-day-result {
+    border: 1px solid white;
+}
+.container {
+    margin: 0 auto;
+    max-width: 1280px;
+    width: 95%;
+  }
+  @media only screen and (min-width: 601px) {
+    .container {
+      width: 95%;
+    }
+  }
+  @media only screen and (min-width: 993px) {
+    .container {
+      width: 95%;
+    }
+  }
+  #day-1 {
+      margin: 2px;
+      width: 19%;
+  }
+  #day-2 {
+    margin: 2px;
+    width: 19%;
+}
+#day-3 {
+    margin: 2px;
+    width: 19%;
+}
+#day-4 {
+    margin: 2px;
+    width: 19%;
+}
+#day-5 {
+    margin: 2px;
+    width: 19%;
+}

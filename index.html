@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <!--Import Google Icon Font-->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
+    <title>Weather Dashboard</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+         <!--Import Google Icon Font-->
+         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+                
+        <title>Weather Dashboard</title>
+        <link rel="icon" type="image/x-icon" href="sun-emoji.png">
+    </head>
+    
+    <body class="blue lighten-5">
+        <div class="container">
+
+        <!-- Begin navbar -->
+
+        <nav class="nav-wrapper">
+        <div class="container">
+            <a href="#" class="brand-logo">Weather Dashboard</a>
+
+        </div>
+        </nav>
+        
+    <!-- City Search Card -->
+
+    <div class="row">
+        <div class="card col s3 white">
+            <div class="card-content search-card">
+                <span class="card-title">Search for a City:</span>
+                <form id ="search-form" class="flight-form section" action="">
+                    <div class="input-field">
+                        <input placeholder="Enter City Name" type="text" id="user-search">
+                        <label for="destination">Enter a City!</label>
+                    </div>
+                    <button class="btn" id="city-submit" type="submit">Search</button>
+                </form>
+                <div class="divider"></div>
+                    <span class="section card-title">Previous Searches:</span>
+            </div>
+            <div class="section" id="previous-search">
+
+            </div>
+            
+        </div>
+
+    <!-- Single Day Card -->
+
+    <div class="card col s8 white city-display">
+        <div class="card-content">
+            <span class="card-title">City: <span id="city-name">Austin</span></span>
+            <div class="weather-details">
+                <p class="section">Temp:</p>
+                <p class="section">Wind:</p>
+                <p class="section">Humidity:</p>
+                <p class="section">UV Index:</p>
+            </div>  
+        </div>
+    </div>
+
+    <!--5-day Forecast Card -->
+
+
+    <div class="card col s8 white city-display">
+    <span class="card-title">5-day forecast: <span id="five-day-city">Austin</span></span>
+        <div class="five-day-result">
+            <span class="col s2 teal lighten-2 day-display" id="day-1">
+                <p class="section" id=date-1></p>
+                <img class="icons" id=icon-1></img>
+                <p class="section" id="day1temp">Temp:</p>
+                <p class="section" id="day1wind">Wind:</p>
+                <p class="section" id="day1hum">Humidity:</p>
+            </span>
+            <span class="col s2 teal lighten-2 day-display" id="day-2">
+                <p class="section" id=date-2></p>
+                <img class="icons" id=icon-2></img>
+                <p class="section"id="day2temp">Temp:</p>
+                <p class="section"id="day2wind">Wind:</p>
+                <p class="section"id="day2hum">Humidity:</p>
+            </span>
+            <span class="col s2 teal lighten-2 day-display" id="day-3">
+                <p class="section" id=date-3></p>
+                <img class="icons"id=icon-3></img>
+                <p class="section"id="day3temp">Temp:</p>
+                <p class="section"id="day3wind">Wind:</p>
+                <p class="section"id="day3hum">Humidity:</p>
+            </span>
+            <span class="col s2 teal lighten-2 day-display" id="day-4">
+                <p class="section" id=date-4></p>
+                <img class="icons"id=icon-4></img>
+                <p class="section"id="day4temp">Temp:</p>
+                <p class="section"id="day4wind">Wind:</p>
+                <p class="section"id="day4hum">Humidity:</p>
+            </span>
+                <span class="col s2 teal lighten-2 day-display" id="day-5">
+                <p class="section" id=date-5></p>
+                <img class="icons"id=icon-5></img>
+                <p class="section"id="day5temp">Temp:</p>
+                <p class="section"id="day5wind">Wind:</p>
+                <p class="section"id="day5hum">Humidity:</p>
+            </span>
+        </div>
+</div>
+</div>
+
+
+
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRNB3o7RWJU870ap-9jNbAdqjlN9D9Zec&libraries=places"></script>
+        <script src=https://code.jquery.com/jquery-3.6.0.min.js></script>
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <script src="./assets/js/script.js"></script>
+    </body>
+    </html>
+
+            <!--  
+
+
+    <div class="row">
+        <div class="col s4">
+          <div class="card">
+              <div class="card-content">
+                  <span class="card-title">Search For A City</span>        
+              </div>
+      <section class="section container" id="destination">
+      <div class="row">
+          <div class="col s12">
+              <form id ="search-form" class="flight-form" action="">
+                  <div class="input-field">
+                      <i class="material-icons prefix">public</i>
+                      <input placeholder="Enter Search" type="text" id="user-search">
+                      <label for="destination">Enter City!</label>
+                  </div>
+          </div>
+      </div>
+      
+      </section>
+      <section class="section container">
+              <div class="input-field center">
+                  <button class="btn">Search</button>
+              </div>
+          </form>
+          <div id="results"></div>
+      </div>
+      </div>
+      </section>
+      
+  </div>
+  </div>
+      <div class="col s4">
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title">Search For A City</span>        
+            </div>
+    <section class="section container" id="destination">
+    <div class="row">
+        <div class="col s7">
+            <form id ="search-form" class="flight-form" action="">
+                <div class="input-field">
+                    <i class="material-icons prefix">public</i>
+                    <input placeholder="Enter Search" type="text" id="user-search">
+                    <label for="destination">Enter City!</label>
+                </div>
+        </div>
+    
+    </section>
+    <section class="section container">
+            <div class="input-field center">
+                <button class="btn">Search</button>
+            </div>
+        </form>
+        <div id="results"></div>
+    </div>
+    </div>
+    </section>
+    
+</div>
+</div>
+-->
