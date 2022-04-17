@@ -60,7 +60,7 @@ function getUV(lat, lon) {
     fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&appid=' + apiKey)
     .then(response => response.json())
     .then(data => {
-        document.getElementById('single-day-UV').innerHTML = "UV Index: " + Number(current.uvi)
+        document.getElementById('single-day-UV').innerHTML = "UV Index: " + Number(data.current.uvi)
     })
 }
     // set dates
