@@ -4,6 +4,9 @@ const userSearch = document.getElementById('user-search');
 const apiKey = 'a727a7b4e3ac0945e7318901d9d0c745';
 
 
+
+    // get and set 5 day forecast info
+
 let getForecastInfo = function (event) {
     
     const fiveDayCityDisplay = document.getElementById('five-day-city')
@@ -11,23 +14,23 @@ let getForecastInfo = function (event) {
 
     event.preventDefault();
 
+    fetch('https://api.openweathermap.org/data/2.5/forecast?q='+userSearch.value+'&units=imperial&appid=' + apiKey)
+    .then(response => response.json())
+    .then(data =>{
+        for(i = 0; i < 5; i++) {
+            document.getElementById('day' + (i+1) + 'temp').innerHTML = "Temp: " + Number(data.list[i].main.temp).toFixed(0) + "°";
+            document.getElementById('day' + (i+1) + 'wind').innerHTML = "Wind: " + Number(data.list[i].wind.speed).toFixed(0) + "mph";
+            document.getElementById('day' + (i+1) + 'hum').innerHTML = "Hum: " + Number(data.list[i].main.humidity).toFixed(0) + "%";
+            document.getElementById('icon-' + (i+1)).src = "http://openweathermap.org/img/wn/"+
+            data.list[i].weather[0].icon+".png";
+            +".png";
 
-fetch('https://api.openweathermap.org/data/2.5/forecast?q='+userSearch.value+'&units=imperial&appid=' + apiKey)
-.then(response => response.json())
-.then(data =>{
-    for(i = 0; i < 5; i++) {
-        document.getElementById('day' + (i+1) + 'temp').innerHTML = "Temp: " + Number(data.list[i].main.temp).toFixed(0) + "°";
-        document.getElementById('day' + (i+1) + 'wind').innerHTML = "Wind: " + Number(data.list[i].wind.speed).toFixed(0) + "mph";
-        document.getElementById('day' + (i+1) + 'hum').innerHTML = "Hum: " + Number(data.list[i].main.humidity).toFixed(0) + "%";
-        document.getElementById('icon-' + (i+1)).src = "http://openweathermap.org/img/wn/"+
-        data.list[i].weather[0].icon+".png";
-        +".png";
-
-    }
-});
-
+            }
+        });
 
 }
+
+    // get and set current weather info
 
 let getcurrentInfo = function (event) {
 
@@ -37,16 +40,30 @@ let getcurrentInfo = function (event) {
 
     fetch('https://api.openweathermap.org/data/2.5/weather?q='+userSearch.value+'&units=imperial&appid=' + apiKey)
     .then(response => response.json())
-    .then(data =>{
-    for(i = 0; i < 5; i++) {
-        document.getElementById('single-day-temp').innerHTML = "Temp: " + Number(data.main.temp).toFixed(0) + "°";
-        document.getElementById('single-day-wind').innerHTML = "Wind: " + Number(data.wind.speed).toFixed(0) + "mph";
-        document.getElementById('single-day-hum').innerHTML = "Hum: " + Number(data.main.humidity).toFixed(0) + "%";
-        document.getElementById('single-day-icon-1').src = "http://openweathermap.org/img/wn/"+
-        data.weather[0].icon+".png";
-    }
+    .then(data => {
+        for(i = 0; i < 5; i++) {
+            document.getElementById('single-day-temp').innerHTML = "Temp: " + Number(data.main.temp).toFixed(0) + "°";
+            document.getElementById('single-day-wind').innerHTML = "Wind: " + Number(data.wind.speed).toFixed(0) + "mph";
+            document.getElementById('single-day-hum').innerHTML = "Hum: " + Number(data.main.humidity).toFixed(0) + "%";
+            document.getElementById('single-day-icon-1').src = "http://openweathermap.org/img/wn/"+
+            data.weather[0].icon+".png";
+        }
+
+        let latitude = Number(data.coord.lon).toString();
+        let longitude = Number(data.coord.lat).toString();
+
+        getUV(latitude, longitude)
 });
 }
+
+function getUV(lat, lon) {
+    fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&appid=' + apiKey)
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('single-day-UV').innerHTML = "UV Index: " + Number(current.uvi)
+    })
+}
+    // set dates
 
 let importDates = function () {
     let currentDate = document.getElementById('single-day-current');
@@ -57,8 +74,8 @@ let importDates = function () {
         document.getElementById('date-' + (i+1)).innerText=moment().add((i+1), 'd').format("dddd, MMMM Do YYYY");
 
     }
-    
 }
+
 
 
 
