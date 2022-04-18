@@ -1,11 +1,54 @@
-const submitBtn = document.getElementById('city-submit');
+// Get global variables and dom elements
+const submitBtn = document.getElementById('city-submit-btn');
 const searchFormEl = document.getElementById('search-form');
 const userSearch = document.getElementById('user-search');
 const apiKey = 'a727a7b4e3ac0945e7318901d9d0c745';
+const previousSearches = document.getElementById('previous-searches')
+
+
+function save() {
+    var newData = document.getElementById('user-search').value
+    if(localStorage.getItem('city') == null){
+    localStorage.setItem('city', '[]');
+}
+
+// get old data and add to new data
+var oldData = JSON.parse(localStorage.getItem('city'));
+oldData.push(newData);
+
+// save the old and new data to local storage
+
+localStorage.setItem('city', JSON.stringify(oldData));
+
+}
 
 
 
-    // get and set 5 day forecast info
+// const cities = JSON.parse(localStorage.getItem("cities"))  ||  [];
+
+// const addCities = (citySearch) => {
+//    cities.push({ 
+//  	citySearch
+// })
+
+// localStorage.setItem("cities", JSON.stringify(cities))
+
+// return {citySearch}
+
+// }
+
+// const createButtonElement = (city) => {
+// 	const cityButton = document.createElement('button')
+// 	cityButton.innerText = city;
+// 	cityButton.appendChild(previousSearches);
+// 	cityButton.classList.add("btn");
+// } 
+
+// //	cityButton.classList.add("btn");
+
+// 	cities.forEach(createButtonElement)
+
+//     // get and set 5 day forecast info
 
 let getForecastInfo = function (event) {
     
@@ -27,13 +70,16 @@ let getForecastInfo = function (event) {
 
             }
         });
-
 }
 
     // get and set current weather info
 
 let getcurrentInfo = function (event) {
 
+    // add previous search to button display
+
+    previousSearches.innerText = userSearch.value;
+   
     const cityName = document.getElementById('city-name');
     cityName.innerHTML = userSearch.value;
     event.preventDefault();
@@ -49,20 +95,22 @@ let getcurrentInfo = function (event) {
             data.weather[0].icon+".png";
         }
 
-        let latitude = Number(data.coord.lon).toString();
-        let longitude = Number(data.coord.lat).toString();
+        var latitude = Number(data.coord.lon).toFixed(2);
+        var longitude = Number(data.coord.lat).toFixed(2);
 
         getUV(latitude, longitude)
 });
 }
 
 function getUV(lat, lon) {
-    fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&appid=' + apiKey)
+  fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&appid=' + apiKey)
+
+    
     .then(response => response.json())
     .then(data => {
-        document.getElementById('single-day-UV').innerHTML = "UV Index: " + Number(data.current.uvi)
+        document.getElementById('single-day-UV').innerHTML = "UV Index: " + Number(data.current.uvi);
     })
-}
+};
     // set dates
 
 let importDates = function () {
@@ -76,16 +124,43 @@ let importDates = function () {
     }
 }
 
-
-
+// api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,daily,alerts&appid=${apiKey}
 
 submitBtn.addEventListener('click', getForecastInfo)
 submitBtn.addEventListener('click', getcurrentInfo)
 submitBtn.addEventListener('click', importDates)
 
+// submitBtn.addEventListener('click', save) 
+
+// searchFormEl.onsubmit = (e) => {
+// 	e.preventDefault();
+
+// 	//const newCity = addCities(userSearch.value);
+
+// 	createButtonElement(newCity)
+
+// 		//userSearch.value = "";
+	
+// }
 
 
-// current weather API call
 
+// function save () {
+//     const key = "search";
+//     const value = userSearch.value;
+//     console.log(key);
+//     console.log(value);
 
+//     if(city) {
+//         localStorage.setItem(key, value)
+//     } else {
+//         alert("You must enter a city name!")
+//     }
 
+//     for (let i = 0; i < localStorage.length; i++) {
+//         const savedKey = localStorage.value(i);
+//         const savedValue = localStorage.getItem(savedKey);   
+
+//         previousSearches.innerHTML += `${savedKey}: ${savedValue}<br />`;
+//     }
+// }

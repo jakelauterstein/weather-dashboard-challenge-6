@@ -47,15 +47,16 @@
         <div class="card col s3 white">
             <div class="card-content search-card">
                 <span class="card-title">Search for a City:</span>
-                <form id ="search-form" class="flight-form section" action="">
+                <form id ="search-form" class="section" action="">
                     <div class="input-field">
-                        <input placeholder="Enter City Name" type="text" id="user-search">
+                        <input placeholder="Enter City Name" type="text" id="user-search" name="city-name">
                         <label for="destination">Enter a City!</label>
                     </div>
-                    <button class="btn" id="city-submit" type="submit">Search</button>
+                    <button onclick="save()" class="btn" id="city-submit-btn" type="submit">Search</button>
                 </form>
                 <div class="divider"></div>
                     <span class="section card-title">Previous Searches:</span>
+                    <button class="btn" id="previous-searches" type="submit"></button>
             </div>
             <div class="section" id="previous-search">
 
@@ -128,7 +129,10 @@
 </div>
 </div>
 
-
+        <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js" integrity="sha512-Wkxbeuy81yHqZNrMurMURCOCMzkJqaFYnvToublHiOGoVXQ2DS1lOUjKwstbe0GwELrRb9sicdV2y6GiAnVxuw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRNB3o7RWJU870ap-9jNbAdqjlN9D9Zec&libraries=places"></script>
         <script src=https://code.jquery.com/jquery-3.6.0.min.js></script>
